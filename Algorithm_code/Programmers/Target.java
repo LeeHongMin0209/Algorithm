@@ -1,20 +1,23 @@
 package Programmers;
 
 public class Target {
+	static int cnt;
     static public int solution(int[] numbers, int target) {
         int answer = 0;
-        answer = dfs(numbers,0,0,target);
+        dfs(numbers,0,0,target);
+        answer = cnt;
         return answer;
     }
-    static int dfs(int[] number, int idx, int sum,int target) {
+    static void dfs(int[] number, int idx, int sum,int target) {
     	if(idx == number.length) {
     		if(sum==target) {
-    			return 1;
+    			cnt++;
+    			return;
     		}
-    		return 0;
+    		return;
     	}
-    	return dfs(number, idx+1, sum+number[idx],target)+
-    			dfs(number, idx+1, sum-number[idx],target );
+    	dfs(number, idx+1, sum+number[idx],target);
+    	dfs(number, idx+1, sum-number[idx],target );
     }
     public static void main(String[] args) {
 		int[] numbers = {1,1,1,1,1};

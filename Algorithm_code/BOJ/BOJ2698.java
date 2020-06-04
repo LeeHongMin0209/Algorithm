@@ -23,9 +23,9 @@ public class BOJ2698 {
 			for(int j = 2; j <= 100; j++) {
 				if(k == 0) dp[j][k][1] += dp[j-1][k][0];
 				else {
-					dp[j][k][1] += dp[j-1][k][0] + dp[j-1][k-1][1];							
+					dp[j][k][1] = dp[j-1][k][0] + dp[j-1][k-1][1];							
 				}
-				dp[j][k][0] += dp[j-1][k][0] + dp[j-1][k][1];
+				dp[j][k][0] = dp[j-1][k][0] + dp[j-1][k][1];
 			}	
 		}
 		

@@ -16,6 +16,7 @@ public class BOJ1010 {
 				dp[i][j] = dp[i-1][j-1] + dp[i-1][j];
 			}
 		}
+		
 		int t = sc.nextInt();
 		for(int i = 0; i < t; i++) {
 			int n = sc.nextInt();

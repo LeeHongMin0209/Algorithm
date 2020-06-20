@@ -37,8 +37,7 @@ public class BOJ7348 {
 				int start = (Integer.parseInt(st.nextToken())-1)/2;
 				int end = (Integer.parseInt(st.nextToken())-1)/2;
 				list.add(new room(start, end));
-			}
-			
+			}		
 			Collections.sort(list, new Comparator<room>() {
 
 				@Override

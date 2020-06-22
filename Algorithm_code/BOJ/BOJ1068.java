@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class BOJ1068 {
 	
+	
 	static int N;
 	static int[][] nodes;
 	public static void main(String[] args) {

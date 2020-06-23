@@ -9,6 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.StringTokenizer;
 
+
 public class BOJ7348 {
 	
 	static class room{

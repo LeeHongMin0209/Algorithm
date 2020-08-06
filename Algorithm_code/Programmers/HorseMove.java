@@ -18,6 +18,7 @@ public class HorseMove {
 			this.y = y;
 		}
 	}
+	
 	static int[][] numPlate;
 	static int[][] visited;
 	static int n,answer;

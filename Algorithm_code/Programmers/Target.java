@@ -8,6 +8,7 @@ public class Target {
         answer = cnt;
         return answer;
     }
+    
     static void dfs(int[] number, int idx, int sum,int target) {
     	if(idx == number.length) {
     		if(sum==target) {

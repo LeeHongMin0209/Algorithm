@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class Robot {
+	
 	static class work implements Comparable<work>{
 		int si;
 		int ei;

@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class BOJ1010 {
 	
-	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int[][] dp = new int[31][31];

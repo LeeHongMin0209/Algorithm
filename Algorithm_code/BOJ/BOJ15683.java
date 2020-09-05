@@ -13,8 +13,6 @@ public class BOJ15683 {
 		public cctv(int x,int y) {
 			this.x = x;
 			this.y = y;
-			
-			
 		}
 	}
 	static int n,m,ans;

@@ -30,8 +30,8 @@ public class BOJ18808 {
 				}
 			}
 			
+			boolean check = false;
 			loop : for(int j = 0; j < 4; j++) {
-				boolean check = false;
 				for(int x = 0; x <= n-r; x++) {
 					for(int y = 0; y <= m-c; y++) {
 						if(isPossible(x, y)) {
@@ -67,7 +67,9 @@ public class BOJ18808 {
 		return true;
 	}
 	
+	
 	static void rotate() {
+		//sticker배열이 회전 중 변환되는걸 방지하기위해 temp배열 생성
 		int[][] temp = new int[12][12];
 		for(int i = 0; i < r; i++) {
 			for(int j = 0; j < c; j++) {

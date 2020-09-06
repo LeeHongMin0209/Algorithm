@@ -29,7 +29,6 @@ public class BOJ18808 {
 					sticker[j][z] = Integer.parseInt(st.nextToken());
 				}
 			}
-			
 			boolean check = false;
 			loop : for(int j = 0; j < 4; j++) {
 				for(int x = 0; x <= n-r; x++) {

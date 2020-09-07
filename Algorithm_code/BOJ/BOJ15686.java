@@ -79,7 +79,7 @@ public class BOJ15686 {
         	 for(int i = 0; i < cnt; i++) {
         		 arr2[i] = new dot(0, 0);
         	 }
-        	 int c = 0;
+        	 int c = 0; 
         	 for(int i = 0; i < n; i++) {
         		 if(visited[i]) {
         			 arr2[c].x = arr[i].x;

@@ -8,8 +8,8 @@ import java.util.Vector;
 public class OpenChatting {
 	 static public String[] solution(String[] record) {
 	        HashMap<String, String> user = new HashMap<>();
-	        String[] logState = new String[10000];
-	        String[] logId = new String[10000];
+	        String[] logState = new String[100000];
+	        String[] logId = new String[100000];
 	        int j = 0;
 	        for(int i = 0; i < record.length; i++) {
 	        	String check = record[i];

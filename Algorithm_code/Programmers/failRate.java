@@ -3,6 +3,8 @@ package Programmers;
 import java.util.Arrays;
 import java.util.Comparator;
 
+//2019 KAKAO BLIND RECRUITMENT : 실패율 문제(객체 정렬 예시)
+
 public class failRate {
 	static class fail {
 		double failRate;
@@ -36,8 +38,10 @@ public class failRate {
         Arrays.sort(fails, new Comparator<fail>() {
         	public int compare(fail o1, fail o2) {
                 if(o1.failRate != o2.failRate) {
+                	//Double 인수 정렬할때는 다음과 같이
                     return -Double.compare(o1.failRate, o2.failRate);
                 }
+                //int 인수 정렬은 다음과 같이
                 return o1.index - o2.index;
             }
         });

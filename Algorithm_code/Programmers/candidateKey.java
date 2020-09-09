@@ -55,7 +55,7 @@ public class candidateKey {
 	}
 
 	static private boolean isUnique(HashSet<Integer> keySet, String[][] relation) {
-		HashMap<String, String> map = new HashMap<>();
+		HashSet<String> map = new HashSet<>();
 		
 		for(int r = 0 ; r < relation.length ; ++r) {
 			String key = "";
@@ -63,8 +63,9 @@ public class candidateKey {
 			for(int c : keySet) {
 				key += relation[r][c];
 			}
-			if(map.containsKey(key)) return false;
-			else map.put(key, key);
+			
+			if(map.contains(key)) return false;
+			else map.add(key);
 		}	
 		return true;
 	}

@@ -1,65 +1,72 @@
 package Programmers;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+
 public class candidateKey {
-	static int ans = 0;
-	static public int solution(String[][] relation) {
-        int answer = 0;  
-        int[] arr = new int[relation[0].length];
-        boolean[] visited = new boolean[arr.length];
-        for(int i = 0; i < arr.length; i++) {
-        	arr[i] = i;
-        }
-        for(int i = 1; i <= relation.length; i++) {
-        	combination(arr, visited, 0, arr.length , i, relation);
-        }
-        int[] temp = {1};
-        unique(temp, relation);
-        answer = ans;
-        return answer;
-    }	
-	static boolean unique(int[] arr, String[][] relation) {
-		boolean check = true;
-		loop : for(int i = 0; i < arr.length; i++) {
-			String tmp = relation[0][arr[0]];
-			for(int j = 1; j < relation.length; j++) {
-				System.out.println(relation[j][arr[i]]);
-				if(tmp.equals(relation[j][arr[i]])) {
-					System.out.println("equal");
-					check = false;
-					break loop;
-				}
-				tmp = relation[j][arr[i]];
-			}
-		}
-		return check;
-	}
-	static void combination(int[] arr, boolean[] visited, int start, int n, int r, String[][] relation) {
-        if (r == 0) {
-        	int cnt = 0;
-        	for (int i = 0; i < n; i++) {
-        		if (visited[i]) cnt++;
-        	}
-        	int[] arr2 = new int[cnt];
-        	int c = 0; 
-        	for(int i = 0; i < n; i++) {
-        		if(visited[i]) {
-        			arr2[c] = arr[i];
-        			c++;
-        		}
-        	}
-
-            return;
-        }
-
-        for (int i = start; i < n; i++) {
-            visited[i] = true;
-            combination(arr, visited, i + 1, n, r - 1, relation);
-            visited[i] = false;
-        }
-    }
 	public static void main(String[] args) {
 		String[][] relation = {{"100","ryan","music","2"},{"200","apeach","math","2"},{"300","tube","computer","3"},{"400","con","computer","4"},{"500","muzi","music","3"},{"600","apeach","music","2"}};
 		int ans = solution(relation);
 		System.out.println(ans);
 	}
+	static ArrayList<HashSet<Integer>> candidateKey;
+	
+	static public int solution(String[][] relation){
+		candidateKey = new ArrayList<>();
+		int colSize = relation[0].length;
+		
+		for(int i = 1 ; i <= colSize ; ++i) {
+			makeKeySet(-1, colSize - 1, 0, i, new HashSet<>(), relation);
+		
+		}
+		
+		return candidateKey.size();
+	}
+
+	static private void makeKeySet(int attr, int maxAttr, int idx, int size, HashSet<Integer> keySet, String[][] relation) {
+		if(idx == size) {
+			
+//			for(int i : keySet) System.out.print(i + " ");
+			
+			for(HashSet<Integer> key : candidateKey) {
+				if(keySet.containsAll(key)) {
+//					System.out.println("는 " + key + "를 포함합니다.");
+					return;
+				}
+			}
+			
+			if(isUnique(keySet, relation)) {
+//				System.out.println("는 후보키 입니다.");
+				candidateKey.add(keySet);
+			} else {
+//				System.out.println("는 후보키가 아닙니다.");
+			}
+			
+			
+			return;
+		}
+		
+		for(int i = attr + 1 ; i <= maxAttr ; ++i) {
+			HashSet<Integer> newKeySet = new HashSet<>(keySet);
+			newKeySet.add(i);
+			makeKeySet(i, maxAttr, idx + 1, size, newKeySet, relation);
+		}
+	}
+
+	static private boolean isUnique(HashSet<Integer> keySet, String[][] relation) {
+		HashMap<String, String> map = new HashMap<>();
+		
+		for(int r = 0 ; r < relation.length ; ++r) {
+			String key = "";
+			
+			for(int c : keySet) {
+				key += relation[r][c];
+			}
+			if(map.containsKey(key)) return false;
+			else map.put(key, key);
+		}	
+		return true;
+	}
+
 }

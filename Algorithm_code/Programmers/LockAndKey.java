@@ -17,7 +17,7 @@ public class LockAndKey {
 	static void dfs(int[][] key, int[][] lock, int cnt) {
 		check(key,lock,0,0);
 		if(isOk) return;
-		if(cnt >= 1) return;
+		if(cnt >= 4) return;
 		int[][] temp = rotate(key);
 		dfs(temp, lock, cnt+1);
 	}
@@ -72,5 +72,6 @@ public class LockAndKey {
 		int[][] key = {{0,0,0},{1,0,0},{0,1,1}};
 		int[][] lock = {{1,1,1},{1,1,0},{1,0,1}};
 		boolean ans = solution(key, lock);
+		System.out.println(ans);
 	}
 }

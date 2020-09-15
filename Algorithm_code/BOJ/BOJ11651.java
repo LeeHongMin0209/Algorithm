@@ -7,8 +7,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
-import BOJ.BOJ11650.dot;
-
 public class BOJ11651 {
 	static class dot{
 		int x;

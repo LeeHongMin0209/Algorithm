@@ -26,15 +26,11 @@ public class BOJ15650 {
 		for(int i = 1; i <= n; i++) {
 			if(!visited[i]) {
 				arr[k] = i;
-				if(k > 0 && arr[k] > arr[k-1]) {
-					visited[i] = true;
-					func(k+1);
-					visited[i] = false;
-				} else if(k == 0) {
-					visited[i] = true;
-					func(k+1);
-					visited[i] = false;
-				}
+				visited[i] = true;
+				if(k > 0 && arr[k] > arr[k-1]) func(k+1);
+				if(k == 0) func(k+1);
+				
+				visited[i] = false;
 			}
 		}
 	}

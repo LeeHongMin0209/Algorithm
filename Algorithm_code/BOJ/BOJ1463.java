@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class BOJ1463 {
 	static int[] arr = new int[10000000];
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
 		arr[1] = 0;

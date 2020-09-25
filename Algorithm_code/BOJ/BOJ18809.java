@@ -64,6 +64,7 @@ public class BOJ18809 {
 		perm_green(0, 0);
 		System.out.println(max);
 	}
+	
 	static void perm_green(int start, int r) {
 		if(r == green) {
 			perm_red(0,0);

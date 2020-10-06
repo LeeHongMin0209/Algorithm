@@ -33,8 +33,8 @@ public class BOJ11404 {
 		}
 		for(int i = 1; i <= n; i++) {
 			for(int j = 1; j <= n; j++) {
-				if(map[i][j] >= 10000001) System.out.println("0 ");
-				else System.out.println(map[i][j]+ " ");
+				if(map[i][j] == 10000001) map[i][j] = 0;
+				System.out.print(map[i][j] + " ");
 			}
 			System.out.println();
 		}

@@ -11,9 +11,10 @@ public class cookieBuy {
 		for(int i = 0; i < cookie.length - 1; i++) {
 			int left = i;
 			int leftSum = cookie[i];
-			
+
 			int right = i + 1;
 			int rightSum = cookie[i+1];
+			
 			while(true) {
 				if(leftSum == rightSum && answer < leftSum) {
 					answer = leftSum;

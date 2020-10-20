@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class nhn01 {
@@ -18,31 +19,23 @@ public class nhn01 {
 			this.y = y;
 		}
 	}
-	static int n;
-	static int[][] map;
 	static boolean[][] visited;
 	static ArrayList<Integer> ansList = new ArrayList<>();
 	static int[] dx = {1,-1,0,0};
 	static int[] dy = {0,0,1,-1};
+	
 	public static void main(String[] args) throws IOException{
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st;
+		 InputData inputData = processStdin();
+
+		 solution(inputData.sizeOfMatrix, inputData.matrix);
+	}
+	private static void solution(int sizeOfMatrix, int[][] matrix) {
+		visited = new boolean[sizeOfMatrix][sizeOfMatrix];
 		
-		n = Integer.parseInt(br.readLine());
-		map = new int[n][n];
-		visited = new boolean[n][n];
-		
-		for(int i = 0; i < n; i++) {
-			st = new StringTokenizer(br.readLine());
-			for(int j = 0; j < n; j++) {
-				map[i][j] = Integer.parseInt(st.nextToken());
-			}
-		}
-		
-		for(int i = 0; i < n; i++) {
-			for(int j = 0; j < n; j++) {
-				if(map[i][j] == 1 && !visited[i][j]) {
-					bfs(i,j);
+		for(int i = 0; i < sizeOfMatrix; i++) {
+			for(int j = 0; j < sizeOfMatrix; j++) {
+				if(matrix[i][j] == 1 && !visited[i][j]) {
+					bfs(i, j, sizeOfMatrix, matrix);
 				}
 			}
 		}
@@ -50,7 +43,32 @@ public class nhn01 {
 		Collections.sort(ansList);
 		for(int x : ansList) System.out.print(x + " ");
 	}
-	static void bfs(int x, int y) {
+	
+	private static class InputData {
+		int sizeOfMatrix;
+		int[][] matrix;
+	}
+	
+	private static InputData processStdin() {
+		InputData inputData = new InputData();
+		
+		try (Scanner scanner = new Scanner(System.in)) {
+			inputData.sizeOfMatrix = Integer.parseInt(scanner.nextLine().replaceAll("\\s+", ""));      
+			
+			inputData.matrix = new int[inputData.sizeOfMatrix][inputData.sizeOfMatrix];
+			for (int i = 0; i < inputData.sizeOfMatrix; i++) {
+				String[] buf = scanner.nextLine().trim().replaceAll("\\s+", " ").split(" ");
+				for (int j = 0; j < inputData.sizeOfMatrix; j++) {
+					inputData.matrix[i][j] = Integer.parseInt(buf[j]);
+				}
+			}
+		} catch (Exception e) {
+			throw e;
+		}
+		
+		return inputData;
+	}
+	static void bfs(int x, int y, int n, int[][] map) {
 		int cnt = 0;
 		Queue<dot> qu = new LinkedList<>();
 		qu.add(new dot(x, y));

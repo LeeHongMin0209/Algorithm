@@ -24,11 +24,12 @@ public class nhn01 {
 	static int[] dx = {1,-1,0,0};
 	static int[] dy = {0,0,1,-1};
 	
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) {
 		 InputData inputData = processStdin();
 
 		 solution(inputData.sizeOfMatrix, inputData.matrix);
 	}
+	
 	private static void solution(int sizeOfMatrix, int[][] matrix) {
 		visited = new boolean[sizeOfMatrix][sizeOfMatrix];
 		

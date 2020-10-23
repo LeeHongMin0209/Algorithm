@@ -8,61 +8,43 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.Vector;
 
-public class BOJ1931 {
-	
-	static class meeting{
-		int start;
-		int end;
-		public meeting(int strat, int end) {
-			this.start = strat;
-			this.end = end;
+public class BOJ1931{
+	static class dot implements Comparable<dot>{
+		int x;
+		int y;
+		public dot(int x, int y) {
+			this.x = x;
+			this.y = y;
+		}
+		@Override
+		public int compareTo(dot d) {
+			if(d.y == this.y) return this.x - d.x;
+			else return this.y - d.y;
 		}
 	}
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		List<meeting> list = new ArrayList<BOJ1931.meeting>();
-		int[] room = new int[100000];
-		
+		int ans = 0;
 		int n = Integer.parseInt(br.readLine());
+		Vector<dot> vec = new Vector<>();
 		for(int i = 0; i < n; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
-			int strat = Integer.parseInt(st.nextToken());
-			int end = Integer.parseInt(st.nextToken());
-			
-			list.add(new meeting(strat, end));
+			int x = Integer.parseInt(st.nextToken());
+			int y = Integer.parseInt(st.nextToken());
+			vec.add(new dot(x, y));
 		}
-		
-		Collections.sort(list, new Comparator<meeting>() {
-
-			@Override
-			public int compare(meeting m1, meeting m2) {
-				if(m1.end < m2.end) {
-					return -1;
-				}
-				else if(m1.end > m2.end) {
-					return 1;
-				}
-				else if(m1.end == m2.end) {
-					if(m1.start < m2.start) {
-						return -1;
-					}
-					else if(m1.start > m2.start) {
-						return 1;
-					}
-				}
-				return 0;
-			}	
-		});
-		
-		int cnt = 0;
-		int curTime = 0;
+		Collections.sort(vec);
+		int start = 0;
+		int end = 0;
 		for(int i = 0; i < n; i++) {
-			if(curTime > list.get(i).start) continue;
-			cnt++;
-			curTime = list.get(i).end;
+			if(vec.get(i).x >= end) {
+				ans++;
+				end = vec.get(i).y;
+			}
 		}
-		System.out.println(cnt);
+		System.out.println(ans);
 	}
 
 }

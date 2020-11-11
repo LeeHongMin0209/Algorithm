@@ -15,6 +15,7 @@ public class BOJ1541 {
 			int tmp = Integer.parseInt(arr[i]);
 			ans += tmp;
 		}
+		
 		for(int i = 1; i < first.length; i++) {
 			arr = first[i].split("\\+");
 			for(int j = 0; j < arr.length; j++) {

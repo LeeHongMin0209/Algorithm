@@ -9,6 +9,7 @@ public class B01 {
 			int two = delivery[i][1];
 			int deli = delivery[i][2];
 			if(deli == 1) {
+				
 				arr[one] = 1;
 				arr[two] = 1;
 			}

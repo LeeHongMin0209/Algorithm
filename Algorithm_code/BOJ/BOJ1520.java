@@ -41,13 +41,13 @@ public class BOJ1520 {
 				
 				if(0 <= nx && nx < n && 0 <= ny && ny < m) {
 					if(map[y][x] < map[ny][nx]) {
-						for(int i = 0; i < m; i++){
-							for(int j = 0; j < n; j++){
-								System.out.print(dp[i][j]+" ");
-							}
-							System.out.println();
-						}
-						System.out.println();
+//						for(int i = 0; i < m; i++){
+//							for(int j = 0; j < n; j++){
+//								System.out.print(dp[i][j]+" ");
+//							}
+//							System.out.println();
+//						}
+//						System.out.println();
 						dp[y][x] += dfs(ny,nx);
 					}
 				}

@@ -49,6 +49,7 @@ public class BOJ1744 {
 		//플러스 계산
 		if(k % 2 == 0) {
 			for(int i = k-1; i > 0; i-=2) {
+				
 				ans += Math.max(plus[i]*plus[i-1],plus[i]+plus[i-1]);
 			}
 		} else {

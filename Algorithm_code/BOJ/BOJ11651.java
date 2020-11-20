@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
+import BOJ.BOJ11650.dot;
+
 public class BOJ11651 {
 	static class dot{
 		int x;
@@ -35,7 +37,7 @@ public class BOJ11651 {
 	                    return (o1.y - o2.y);
 	                }
 	                //int 인수 정렬은 다음과 같이
-	                return o1.x - o2.x;
+	                return o1.x - o2.y;
 	            }
 	        });
 		StringBuilder sb =  new StringBuilder();

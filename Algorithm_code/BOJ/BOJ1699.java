@@ -23,6 +23,7 @@ public class BOJ1699 {
 				int x = 2;
 				while(true) {
 					if(i - x * x <= 0) break;
+					
 					dp[i] = Math.min(dp[i], dp[i - x*x]);
 					x++;
 				}

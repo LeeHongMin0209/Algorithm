@@ -76,6 +76,7 @@ public class BOJ14891 {
 //			}
 //			System.out.println();
 //		}
+		
 		int ans = 0;
 		if(top[0][0] == 1) ans += 1;
 		if(top[1][0] == 1) ans += 2;

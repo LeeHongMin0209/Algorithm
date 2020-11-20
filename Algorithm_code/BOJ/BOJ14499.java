@@ -57,6 +57,8 @@ public class BOJ14499 {
 					}
 					System.out.println(list.get(0));
 				}
+				
+				
 			} else if(dir == 2) {
 				if(isRable(x, y-1)) {
 					y--;

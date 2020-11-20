@@ -1,6 +1,7 @@
 package BOJ;
 
 public class B02 {
+	
 	static public String solution(String encrypted_text, String key, int rotation) {
 		String answer = "";
 		int len = encrypted_text.length();

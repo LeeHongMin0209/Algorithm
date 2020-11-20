@@ -70,12 +70,14 @@ public class BOJ14891 {
 				}
 			}
 		}
+		
 //		for(int i = 0; i < 4; i++) {
 //			for(int j = 0; j < 8; j++) {
 //				System.out.print(top[i][j]);
 //			}
 //			System.out.println();
 //		}
+		
 		int ans = 0;
 		if(top[0][0] == 1) ans += 1;
 		if(top[1][0] == 1) ans += 2;

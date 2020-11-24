@@ -89,6 +89,7 @@ public class BOJ14891 {
 		for(int i = 0; i < 8; i++) {
 			copy[i] = to[i];
 		}
+		
 		if(dir == 1) {
 			to[0] = copy[7];
 			for(int i = 1; i < 8; i++) {

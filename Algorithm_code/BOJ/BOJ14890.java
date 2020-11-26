@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class BOJ15684 {
+public class BOJ14890 {
 	static int n, l, ans;
 	static int[][] map;
 	public static void main(String[] args) throws IOException{

@@ -16,6 +16,7 @@ public class BOJ10026 {
 			this.y = y;
 		}
 	}
+	
 	static char[][] map;
 	static boolean[][] visited;
 	static int[] dx = {1,-1,0,0};

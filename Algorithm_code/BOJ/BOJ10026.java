@@ -26,7 +26,7 @@ public class BOJ10026 {
 	static int cnt2 = 0;
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
+		  
 		n = Integer.parseInt(br.readLine());
 		map = new char[n][n];
 		visited = new boolean[n][n];
